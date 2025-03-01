@@ -6,6 +6,7 @@
 		<module>crick-web</module>
 		<module>crick-service</module>
 		<module>crick-kafka-producer</module>
+		<module>crick-model</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

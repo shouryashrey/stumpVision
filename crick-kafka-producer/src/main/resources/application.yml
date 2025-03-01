@@ -1,0 +1,7 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /crick-updates
+spring:
+  application:
+    name: crick-kafka-producer
