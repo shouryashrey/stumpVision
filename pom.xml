@@ -4,6 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<modules>
 		<module>crick-web</module>
+		<module>crick-exception-handler</module>
 		<module>crick-service</module>
 		<module>crick-kafka-producer</module>
 		<module>crick-model</module>
