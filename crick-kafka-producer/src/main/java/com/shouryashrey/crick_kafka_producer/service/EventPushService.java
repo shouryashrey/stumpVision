@@ -15,9 +15,6 @@ public class EventPushService {
 
     public void pushEvents(EventUpdate eventUpdate) {
         try {
-            int[] arr = new int[2];
-//            log.info("Generate exception: {}", arr[3]);
-            System.out.printf("Generate exception: {}%n", arr[3]);
             kafkaPublisher.pushUpdates("event-update", "event-update", eventUpdate);
         } catch (Exception e) {
             throw new RuntimeException(e);
