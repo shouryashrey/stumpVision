@@ -8,6 +8,7 @@
 		<module>crick-service</module>
 		<module>crick-kafka-producer</module>
 		<module>crick-model</module>
+		<module>crick-dao</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

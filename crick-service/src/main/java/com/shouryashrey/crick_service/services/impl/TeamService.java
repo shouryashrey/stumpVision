@@ -1,0 +1,38 @@
+package com.shouryashrey.crick_service.services.impl;
+
+import com.shouryashrey.crick_dao.repos.TeamRepository;
+import com.shouryashrey.crick_model.mapper.TeamMapper;
+import com.shouryashrey.crick_model.model.Team;
+import com.shouryashrey.crick_model.model.dto.TeamDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+public class TeamService {
+
+    @Autowired
+    private TeamRepository teamRepository;
+
+    @Transactional
+    public TeamDTO saveTeam(TeamDTO teamDTO) {
+        if(teamRepository.existsByTeamName(teamDTO.getTeamName())) {
+            throw new RuntimeException("Team with this name already exists");
+        }
+        if(teamRepository.existsByShortName(teamDTO.getShortName())) {
+            throw new RuntimeException("Team with this short name already exists");
+        }
+        Team team = TeamMapper.toEntity(teamDTO);
+        Team savedTeam = teamRepository.save(team);
+        return TeamMapper.toDTO(savedTeam);
+    }
+
+    public List<TeamDTO> getAllTeams() {
+        return teamRepository.findAll().stream()
+                .map(TeamMapper::toDTO)
+                .collect(Collectors.toList());
+    }
+}

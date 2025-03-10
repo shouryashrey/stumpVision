@@ -1,6 +1,6 @@
 package com.shouryashrey.crick_web.controllers;
 
-import com.shouryashrey.crick_service.services.impl.MatchScoreImpl;
+import com.shouryashrey.crick_service.services.impl.MatchScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MatchController {
 
     @Autowired
-    private MatchScoreImpl matchService;
+    private MatchScoreService matchService;
 
     @GetMapping("/score")
     public ResponseEntity<Integer> getMatchScore() {
