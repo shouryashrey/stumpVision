@@ -14,9 +14,12 @@ public class EventPushService {
     private KafkaPublisher<String, EventUpdate> kafkaPublisher;
 
     public void pushEvents(EventUpdate eventUpdate) {
+        log.info("Pushing event updates to Kafka topic");
         try {
             kafkaPublisher.pushUpdates("event-update", "event-update", eventUpdate);
+            log.info("Event updates pushed successfully");
         } catch (Exception e) {
+            log.error("Error pushing event updates to Kafka topic");
             throw new RuntimeException(e);
         }
     }
