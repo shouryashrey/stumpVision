@@ -19,6 +19,9 @@ public class TeamService {
 
     @Transactional
     public TeamDTO saveTeam(TeamDTO teamDTO) {
+        if (teamDTO.getTeamName().isEmpty() || teamDTO.getShortName().isEmpty()) {
+            throw new RuntimeException("Team name and short name are required");
+        }
         if(teamRepository.existsByTeamName(teamDTO.getTeamName())) {
             throw new RuntimeException("Team with this name already exists");
         }

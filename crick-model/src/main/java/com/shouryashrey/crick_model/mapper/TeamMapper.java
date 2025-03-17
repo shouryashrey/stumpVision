@@ -3,6 +3,8 @@ package com.shouryashrey.crick_model.mapper;
 import com.shouryashrey.crick_model.model.Team;
 import com.shouryashrey.crick_model.model.dto.TeamDTO;
 
+import java.time.LocalDateTime;
+
 public class TeamMapper {
 
     public static Team toEntity(TeamDTO teamDTO) {
@@ -10,6 +12,7 @@ public class TeamMapper {
                 .teamName(teamDTO.getTeamName())
                 .shortName(teamDTO.getShortName())
                 .country(teamDTO.getCountry())
+                .createdAt(LocalDateTime.now())
                 .build();
     }
 
