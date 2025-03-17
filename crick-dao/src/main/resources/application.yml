@@ -1,10 +1,4 @@
-server:
-  port: 8082
-  servlet:
-    context-path: /crick-updates
 spring:
-  application:
-    name: crick-kafka-producer
   datasource:
     url: jdbc:mysql://localhost:3306/stump_vision?rewriteBatchedStatements=true&useServerPrepStmts=false
     username: root

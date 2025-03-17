@@ -3,12 +3,12 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<modules>
-		<module>crick-web</module>
-		<module>crick-exception-handler</module>
-		<module>crick-service</module>
-		<module>crick-kafka-producer</module>
 		<module>crick-model</module>
 		<module>crick-dao</module>
+		<module>crick-service</module>
+		<module>crick-exception-handler</module>
+		<module>crick-kafka-producer</module>
+		<module>crick-web</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -53,6 +53,11 @@
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 						</path>
+						<dependency>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok-mapstruct-binding</artifactId>
+							<version>0.2.0</version>
+						</dependency>
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>

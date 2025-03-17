@@ -29,4 +29,10 @@ public class Team {
 
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
+
+    public Team(String teamName, String shortName, String country) {
+        this.teamName = teamName;
+        this.shortName = shortName;
+        this.country = country;
+    }
 }

@@ -11,12 +11,12 @@
     <dependencies>
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
-            <artifactId>crick-model</artifactId>
+            <artifactId>crick-dao</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
-            <artifactId>crick-dao</artifactId>
+            <artifactId>crick-model</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>

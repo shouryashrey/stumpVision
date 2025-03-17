@@ -4,18 +4,19 @@ spring:
   application:
     name: crick-service
   datasource:
-    url: jdbc:mysql://localhost:3306/stump_vision?rewriteBatchedStatements=true&useServerPrepStmts=false
+    url: jdbc:mysql://localhost:3306/stump_vision
+#    url: jdbc:mysql://localhost:3306/stump_vision?rewriteBatchedStatements=true&useServerPrepStmts=false
     username: root
     password: BEshrek543
-  jpa:
-    properties:
-      hibernate:
-        generate_statistics: true
-        jdbc:
-          batch_size: 1000
-        order_inserts: true
-        order_updates: true
-  servlet:
-    multipart:
-      max-file-size: 20MB
-      max-request-size: 30MB
+#  jpa:
+#    properties:
+#      hibernate:
+#        generate_statistics: true
+#        jdbc:
+#          batch_size: 1000
+#        order_inserts: true
+#        order_updates: true
+#  servlet:
+#    multipart:
+#      max-file-size: 20MB
+#      max-request-size: 30MB
