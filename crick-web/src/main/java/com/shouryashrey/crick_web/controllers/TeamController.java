@@ -1,6 +1,7 @@
 package com.shouryashrey.crick_web.controllers;
 
 import com.shouryashrey.crick_model.model.CustomResponse;
+import com.shouryashrey.crick_model.model.Team;
 import com.shouryashrey.crick_model.model.dto.TeamDTO;
 import com.shouryashrey.crick_service.services.impl.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class TeamController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<TeamDTO>> getAllTeams() {
+    public ResponseEntity<List<Team>> getAllTeams() {
         return ResponseEntity.ok(teamService.getAllTeams());
     }
 }

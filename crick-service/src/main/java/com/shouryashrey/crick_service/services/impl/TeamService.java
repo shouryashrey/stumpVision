@@ -33,9 +33,7 @@ public class TeamService {
         return TeamMapper.toDTO(savedTeam);
     }
 
-    public List<TeamDTO> getAllTeams() {
-        return teamRepository.findAll().stream()
-                .map(TeamMapper::toDTO)
-                .collect(Collectors.toList());
+    public List<Team> getAllTeams() {
+        return teamRepository.findAll();
     }
 }
