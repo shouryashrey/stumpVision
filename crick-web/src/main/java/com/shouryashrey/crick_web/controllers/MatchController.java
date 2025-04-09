@@ -1,9 +1,8 @@
 package com.shouryashrey.crick_web.controllers;
 
-import com.shouryashrey.crick_service.services.impl.MatchScoreService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.shouryashrey.crick_model.model.CustomResponse;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,16 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/match")
 public class MatchController {
 
-    @Autowired
-    private MatchScoreService matchService;
-
-    @GetMapping("/score")
-    public ResponseEntity<Integer> getMatchScore() {
-        try {
-            int currentScore = matchService.getCurrentScore();
-            return ResponseEntity.ok(currentScore);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
+    @PostMapping("/create")
+    public ResponseEntity<CustomResponse> createMatch() {
+        return ResponseEntity.ok(new CustomResponse("success", "Match created successfully"));
     }
 }

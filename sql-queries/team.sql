@@ -16,6 +16,13 @@ SELECT count(*) FROM stump_vision.team;
 
 desc team;
 
-create table crick_match(
-id int primary key
+create table cricket_match(
+id bigint primary key auto_increment,
+venue varchar(256),
+match_date date not null,
+overs int,
+match_type varchar(10) not null,
+series_name varchar(256),
+team_a_id bigint not null,
+team_b_id bigint not null
 );
