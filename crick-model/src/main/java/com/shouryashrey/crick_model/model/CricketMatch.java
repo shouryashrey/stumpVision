@@ -30,10 +30,10 @@ public class CricketMatch {
 
     private String venue;
 
-    @Column(nullable = false)
+    @Column(name = "team_a_id", nullable = false)
     private Long teamAId;
 
-    @Column(nullable = false)
+    @Column(name = "team_b_id", nullable = false)
     private Long teamBId;
 
     private Integer overs;
