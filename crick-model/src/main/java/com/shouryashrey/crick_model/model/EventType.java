@@ -11,5 +11,10 @@ public enum EventType {
     SIX,
     OUT,
     END_INNINGS,
-    END_MATCH
+    END_MATCH,
+    MATCH_START,
+    MATCH_END,
+    SCORE_UPDATE,
+    MILESTONE,
+    COMMENTARY
 }

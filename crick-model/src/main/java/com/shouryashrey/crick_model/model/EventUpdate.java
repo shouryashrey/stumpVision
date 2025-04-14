@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -17,7 +18,13 @@ import java.io.Serializable;
 @JsonDeserialize
 public class EventUpdate implements Serializable {
 
-    private String eventType;
+    private Long matchId;
 
-    private CrickScore crickScore;
+    private EventType eventType;
+
+    private LocalDateTime eventTime;
+
+    private String message;
+
+    private EventPayload payload;
 }
