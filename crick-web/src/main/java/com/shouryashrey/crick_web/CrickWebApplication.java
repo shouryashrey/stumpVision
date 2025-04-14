@@ -8,7 +8,15 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = "com.shouryashrey.crick_dao.repos")
-@ComponentScan(basePackages = {"com.shouryashrey.crick_model", "com.shouryashrey.crick_dao.repos", "com.shouryashrey.crick_service", "com.shouryashrey.*", "com.shouryashrey.crick_web", "com.shouryashrey.crick_exception_handler"})
+@ComponentScan(basePackages = {
+		"com.shouryashrey.crick_model",
+		"com.shouryashrey.crick_dao.repos",
+		"com.shouryashrey.crick_kafka",
+		"com.shouryashrey.crick_service",
+		"com.shouryashrey.*",
+		"com.shouryashrey.crick_web",
+		"com.shouryashrey.crick_exception_handler"
+})
 @EntityScan(basePackages = "com.shouryashrey.crick_model")
 public class CrickWebApplication {
 

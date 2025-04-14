@@ -5,9 +5,9 @@
 	<modules>
 		<module>crick-model</module>
 		<module>crick-dao</module>
+		<module>crick-kafka</module>
 		<module>crick-service</module>
 		<module>crick-exception-handler</module>
-		<module>crick-kafka-producer</module>
 		<module>crick-web</module>
 	</modules>
 	<parent>
