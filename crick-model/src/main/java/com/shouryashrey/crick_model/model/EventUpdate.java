@@ -20,8 +20,6 @@ public class EventUpdate implements Serializable {
 
     private Long matchId;
 
-    private EventType eventType;
-
     private LocalDateTime eventTime;
 
     private String message;

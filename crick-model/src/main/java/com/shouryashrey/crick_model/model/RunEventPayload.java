@@ -14,4 +14,9 @@ public class RunEventPayload implements EventPayload {
     private int runs;
 
     private double overNumber;
+
+    @Override
+    public EventType getEventType() {
+        return EventType.RUN;
+    }
 }

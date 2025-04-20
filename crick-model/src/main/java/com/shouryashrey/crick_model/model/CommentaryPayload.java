@@ -12,4 +12,10 @@ import lombok.Setter;
 public class CommentaryPayload implements EventPayload {
 
     private String commentary;
+
+
+    @Override
+    public EventType getEventType() {
+        return EventType.COMMENTARY;
+    }
 }

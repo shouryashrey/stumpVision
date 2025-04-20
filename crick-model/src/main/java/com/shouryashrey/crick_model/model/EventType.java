@@ -1,5 +1,8 @@
 package com.shouryashrey.crick_model.model;
 
+import lombok.Getter;
+
+@Getter
 public enum EventType {
     RUN,
     WICKET,

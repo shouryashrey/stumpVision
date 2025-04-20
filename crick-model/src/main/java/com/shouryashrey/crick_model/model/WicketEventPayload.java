@@ -16,4 +16,9 @@ public class WicketEventPayload implements EventPayload {
     private int totalWickets;
 
     private double overNumber;
+
+    @Override
+    public EventType getEventType() {
+        return EventType.WICKET;
+    }
 }

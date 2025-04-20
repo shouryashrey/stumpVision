@@ -14,4 +14,10 @@ public class MilestonePayload implements EventPayload {
     private String milestoneType;
 
     private String milestoneMessage;
+
+    private EventType eventType; // Add this to identify the specific milestone
+
+    public EventType getPayloadType() {
+        return eventType;
+    }
 }

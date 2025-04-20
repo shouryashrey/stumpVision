@@ -18,4 +18,9 @@ public class ScoreUpdatePayload implements EventPayload {
     private double overNumber;
 
     private int targetScore;
+
+    @Override
+    public EventType getEventType() {
+        return EventType.SCORE_UPDATE;
+    }
 }
