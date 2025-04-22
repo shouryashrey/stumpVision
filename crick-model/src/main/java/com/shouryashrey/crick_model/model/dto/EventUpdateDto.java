@@ -1,21 +1,21 @@
-package com.shouryashrey.crick_model.model;
+package com.shouryashrey.crick_model.model.dto;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.shouryashrey.crick_model.model.EventPayload;
+import com.shouryashrey.crick_model.model.EventType;
 import com.shouryashrey.crick_model.serializer.EventUpdateDeserializer;
 import lombok.*;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonSerialize
-@JsonDeserialize(using = EventUpdateDeserializer.class)
-public class EventUpdate implements Serializable {
+@Builder
+@JsonDeserialize
+public class EventUpdateDto {
 
     private Long matchId;
 

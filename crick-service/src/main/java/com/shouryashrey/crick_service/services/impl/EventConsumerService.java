@@ -14,9 +14,14 @@ public class EventConsumerService {
     private CricketMatchRepo cricketMatchRepo;
 
     public void consumeEvents(EventUpdate event) {
-        switch (event.getPayload().getEventType()) {
+        switch (event.getEventType()) {
             case MATCH_START -> {
-
+                cricketMatchRepo.updateMatchStartTime(event.getMatchId(), event.getEventTime());
+                log.info("Match started at {}", event.getEventTime());
+            }
+            case MATCH_END -> {
+                cricketMatchRepo.updateMatchEndTime(event.getMatchId(), event.getEventTime());
+                log.info("Match ended at {}", event.getEventTime());
             }
         }
     }

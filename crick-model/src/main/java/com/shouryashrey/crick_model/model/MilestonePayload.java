@@ -17,7 +17,8 @@ public class MilestonePayload implements EventPayload {
 
     private EventType eventType; // Add this to identify the specific milestone
 
-    public EventType getPayloadType() {
+    @Override
+    public EventType getEventType() {
         return eventType;
     }
 }
