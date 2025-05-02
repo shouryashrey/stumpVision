@@ -6,7 +6,6 @@ import com.shouryashrey.crick_model.serializer.EventUpdateDeserializer;
 import lombok.*;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -21,7 +20,7 @@ public class EventUpdate implements Serializable {
 
     private EventType eventType;
 
-    private LocalDateTime eventTime;
+    private Long eventTime;
 
     private String message;
 

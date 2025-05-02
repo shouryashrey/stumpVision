@@ -24,12 +24,7 @@ public class EventUpdateDeserializer extends StdDeserializer<EventUpdate> {
         Long matchId = node.get("matchId").asLong();
         EventType eventType = EventType.valueOf(node.get("eventType").asText());
         String message = node.get("message").asText();
-        JsonNode eventTimeNode = node.get("eventTime");
-        LocalDateTime eventTime = null;
-
-        if (eventTimeNode != null && !eventTimeNode.asText().isBlank()) {
-            eventTime = LocalDateTime.parse(eventTimeNode.asText());
-        }
+        Long timeStamp = node.get("eventTime").asLong();
 
         JsonNode payloadNode = node.get("payload");
 
@@ -44,7 +39,7 @@ public class EventUpdateDeserializer extends StdDeserializer<EventUpdate> {
         return EventUpdate.builder()
                 .matchId(matchId)
                 .eventType(eventType)
-                .eventTime(eventTime)
+                .eventTime(timeStamp)
                 .message(message)
                 .payload(payload)
                 .build();

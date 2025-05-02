@@ -15,10 +15,10 @@ public interface CricketMatchRepo extends JpaRepository<CricketMatch, Long> {
     @Modifying
     @Transactional
     @Query("update CricketMatch cm set cm.matchStartTime = :startTime where cm.id = :matchId")
-    void updateMatchStartTime(Long matchId, LocalDateTime startTime);
+    void updateMatchStartTime(Long matchId, Long startTime);
 
     @Modifying
     @Transactional
     @Query("update CricketMatch cm set cm.matchEndTime = :endTime where cm.id = :matchId")
-    void updateMatchEndTime(Long matchId, LocalDateTime endTime);
+    void updateMatchEndTime(Long matchId, Long endTime);
 }

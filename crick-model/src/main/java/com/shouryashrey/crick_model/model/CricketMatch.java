@@ -38,7 +38,7 @@ public class CricketMatch {
 
     private Integer overs;
 
-    private LocalDateTime matchStartTime;
+    private Long matchStartTime;
 
-    private LocalDateTime matchEndTime;
+    private Long matchEndTime;
 }

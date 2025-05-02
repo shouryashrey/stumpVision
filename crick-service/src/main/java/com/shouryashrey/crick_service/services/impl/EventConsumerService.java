@@ -23,6 +23,9 @@ public class EventConsumerService {
                 cricketMatchRepo.updateMatchEndTime(event.getMatchId(), event.getEventTime());
                 log.info("Match ended at {}", event.getEventTime());
             }
+            case RUN -> {
+
+            }
         }
     }
 }
