@@ -8,7 +8,6 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.shouryashrey.crick_model.model.*;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 public class EventUpdateDeserializer extends StdDeserializer<EventUpdate> {
 

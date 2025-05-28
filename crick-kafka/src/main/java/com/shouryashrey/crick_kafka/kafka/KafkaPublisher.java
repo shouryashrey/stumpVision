@@ -1,6 +1,7 @@
 package com.shouryashrey.crick_kafka.kafka;
 
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,6 +13,7 @@ public class KafkaPublisher<K, V> {
         this.kafkaTemplate = kafkaTemplate;
     }
 
+    @Async
     public void pushUpdates(String topic, K key, V value) {
         kafkaTemplate.send(topic, key, value);
     }
