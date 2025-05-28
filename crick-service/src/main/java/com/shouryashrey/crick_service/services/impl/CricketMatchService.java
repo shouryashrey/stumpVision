@@ -8,6 +8,7 @@ import com.shouryashrey.crick_model.model.CricketMatchDetail;
 import com.shouryashrey.crick_model.model.Team;
 import com.shouryashrey.crick_model.model.dto.CricketMatchDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -33,5 +34,10 @@ public class CricketMatchService {
         cricketMatchRepo.save(cricketMatch);
 
         return new CricketMatchDetail(cricketMatch, teamA.get(), teamB.get());
+    }
+
+    @Cacheable(value = "cricketMatch", key = "#matchId", unless = "#result == null || #result.isEmpty()")
+    public Optional<CricketMatch> getMatchInfoById(Long matchId) {
+        return cricketMatchRepo.findById(matchId);
     }
 }

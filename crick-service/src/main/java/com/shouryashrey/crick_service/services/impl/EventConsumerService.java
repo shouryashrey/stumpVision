@@ -18,13 +18,11 @@ public class EventConsumerService {
     @Autowired
     private CricketMatchRepo cricketMatchRepo;
 
-    @Cacheable(value = "validMatch")
-    private Optional<CricketMatch> getMatchInfo(Long matchId) {
-        return cricketMatchRepo.findById(matchId);
-    }
+    @Autowired
+    private CricketMatchService cricketMatchService;
 
     public void consumeEvents(EventUpdate event) {
-        Optional<CricketMatch> match = getMatchInfo(event.getMatchId());
+        Optional<CricketMatch> match = cricketMatchService.getMatchInfoById(event.getMatchId());
         if(match.isEmpty()) {
             log.warn("Invalid matchID: {}", event.getMatchId());
             return;
