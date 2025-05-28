@@ -5,6 +5,7 @@ import com.shouryashrey.crick_model.mapper.TeamMapper;
 import com.shouryashrey.crick_model.model.Team;
 import com.shouryashrey.crick_model.model.dto.TeamDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,10 +19,10 @@ public class TeamService {
     private TeamRepository teamRepository;
 
     @Transactional
-    public TeamDTO saveTeam(TeamDTO teamDTO) {
+    @CacheEvict(value = "teams", allEntries = true)
+    public Team saveTeam(TeamDTO teamDTO) {
         Team team = TeamMapper.toEntity(teamDTO);
-        Team savedTeam = teamRepository.save(team);
-        return TeamMapper.toDTO(savedTeam);
+        return teamRepository.save(team);
     }
 
     @Cacheable(value="teams")

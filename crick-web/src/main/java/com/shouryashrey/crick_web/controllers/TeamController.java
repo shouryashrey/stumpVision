@@ -20,8 +20,12 @@ public class TeamController {
 
     @PostMapping("/create")
     public ResponseEntity<CustomResponse> createTeam(@Valid @RequestBody TeamDTO teamDTO) {
-        TeamDTO savedTeam = teamService.saveTeam(teamDTO);
-        return ResponseEntity.ok(new CustomResponse("success", String.format("Team %s created successfully", savedTeam.getTeamName())));
+        Team savedTeam = teamService.saveTeam(teamDTO);
+        return ResponseEntity.ok(new CustomResponse("success", String.format(
+                "Team %s created successfully with id: %d",
+                savedTeam.getTeamName(),
+                savedTeam.getId()
+        )));
     }
 
     @GetMapping("/all")
