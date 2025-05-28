@@ -3,6 +3,7 @@ package com.shouryashrey.crick_model.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Team {
+public class Team implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

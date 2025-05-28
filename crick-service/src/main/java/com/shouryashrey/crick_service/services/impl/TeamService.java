@@ -5,6 +5,7 @@ import com.shouryashrey.crick_model.mapper.TeamMapper;
 import com.shouryashrey.crick_model.model.Team;
 import com.shouryashrey.crick_model.model.dto.TeamDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +24,7 @@ public class TeamService {
         return TeamMapper.toDTO(savedTeam);
     }
 
+    @Cacheable(value="teams")
     public List<Team> getAllTeams() {
         return teamRepository.findAll();
     }

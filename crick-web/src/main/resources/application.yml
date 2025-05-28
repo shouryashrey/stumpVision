@@ -10,6 +10,12 @@ spring:
 #    url: jdbc:mysql://localhost:3306/stump_vision?rewriteBatchedStatements=true&useServerPrepStmts=false
     username: root
     password: BEshrek543
+  cache:
+    type: redis
+    host: localhost
+    port: 6379
+    redis:
+      time-to-live: 60000
 #  jpa:
 #    properties:
 #      hibernate:
@@ -24,4 +30,8 @@ spring:
 #      max-request-size: 30MB
 
 kafka:
-    bootstrap-servers: localhost:9092
+  bootstrap-servers: localhost:9092
+
+logging:
+  level:
+    org.springframework.data.redis: DEBUG

@@ -2,6 +2,7 @@ package com.shouryashrey.crick_web.kafka;
 
 import com.shouryashrey.crick_model.model.EventUpdate;
 import com.shouryashrey.crick_service.services.impl.EventConsumerService;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -15,7 +16,7 @@ public class KafkaConsumer {
     EventConsumerService eventConsumer;
 
     @KafkaListener(topics = "event-update", groupId = "crick-consumer-group")
-    public void consumeEvents(EventUpdate event) {
+    public void consumeEvents(@Valid EventUpdate event) {
         log.info(String.format("Event received: %s", event.getMessage()));
         eventConsumer.consumeEvents(event);
     }
