@@ -14,6 +14,7 @@ public class EventConsumerService {
     private CricketMatchRepo cricketMatchRepo;
 
     public void consumeEvents(EventUpdate event) {
+        // TODO: check if the cricket match exist or not and store the match details in cache with the ttl set to match estimated end time.
         switch (event.getEventType()) {
             case MATCH_START -> {
                 cricketMatchRepo.updateMatchStartTime(event.getMatchId(), event.getEventTime());

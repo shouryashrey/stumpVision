@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set Kafka installation path
-KAFKA_DIR="."
+KAFKA_DIR="../../kafka"
 ZOOKEEPER_LOG="$KAFKA_DIR/logs/zookeeper.out"
 KAFKA_LOG="$KAFKA_DIR/logs/kafka.out"
 

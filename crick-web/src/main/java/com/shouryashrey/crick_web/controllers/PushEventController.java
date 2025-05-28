@@ -1,7 +1,7 @@
 package com.shouryashrey.crick_web.controllers;
 
 import com.shouryashrey.crick_model.model.EventUpdate;
-import com.shouryashrey.crick_service.services.impl.EventPushService;
+import com.shouryashrey.crick_service.services.impl.EventPublisherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class PushEventController {
 
     @Autowired
-    private EventPushService eventPushService;
+    private EventPublisherService eventPublisherService;
 
     @PostMapping("/push")
     public ResponseEntity<String> pushUpdates(@RequestBody EventUpdate eventUpdate) {
-        eventPushService.pushEvents(eventUpdate);
+        eventPublisherService.pushEvents(eventUpdate);
         return ResponseEntity.ok("Event updates pushed successfully");
     }
 }
