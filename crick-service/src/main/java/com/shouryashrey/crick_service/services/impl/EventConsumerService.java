@@ -6,7 +6,6 @@ import com.shouryashrey.crick_model.model.CricketMatch;
 import com.shouryashrey.crick_model.model.EventUpdate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -22,7 +21,7 @@ public class EventConsumerService {
     private CricketMatchService cricketMatchService;
 
     public void consumeEvents(EventUpdate event) {
-        Optional<CricketMatch> match = cricketMatchService.getMatchInfoById(event.getMatchId());
+        Optional<CricketMatch> match = cricketMatchService.getCricketMatchById(event.getMatchId());
         if(match.isEmpty()) {
             log.warn("Invalid matchID: {}", event.getMatchId());
             return;
@@ -40,6 +39,7 @@ public class EventConsumerService {
             case COMMENTARY -> {
                 CommentaryPayload commentary = (CommentaryPayload) event.getPayload();
                 if (commentary != null) {
+//                    TODO: Push commentary events into websocket connection
                     log.info("Commentary: {}", commentary.getCommentary());
                 }
             }

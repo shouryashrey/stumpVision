@@ -37,7 +37,7 @@ public class CricketMatchService {
     }
 
     @Cacheable(value = "cricketMatch", key = "#matchId", unless = "#result == null || #result.isEmpty()")
-    public Optional<CricketMatch> getMatchInfoById(Long matchId) {
+    public Optional<CricketMatch> getCricketMatchById(Long matchId) {
         return cricketMatchRepo.findById(matchId);
     }
 }
